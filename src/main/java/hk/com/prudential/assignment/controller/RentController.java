@@ -32,16 +32,13 @@ public class RentController {
     }
 
     @RequestMapping("/return/car")
-    public DataResult<Integer> returnCar(Integer customerId, Integer orderId) {
+    public DataResult<Void> returnCar(Integer customerId, Integer orderId) {
 
         if (Objects.isNull(orderId) || Objects.isNull(customerId)) {
             return DataResult.error("missing parameter");
         }
 
-        rentService.returnCar(customerId, orderId);
-
-        return DataResult.success(null);
-
+        return rentService.returnCar(customerId, orderId);
     }
 
 
