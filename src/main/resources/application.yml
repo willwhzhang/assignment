@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://willmysql.mysql.database.azure.com:3306/test?useSSL=true
+    username: willroot
+    password: Admin@123
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+logging:
+  level:
+    org:
+      apache:
+        http:
+          headers: INFO
+          wire: ERROR
+      springframework:
+        web: INFO
