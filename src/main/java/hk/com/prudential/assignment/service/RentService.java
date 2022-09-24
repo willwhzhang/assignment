@@ -76,6 +76,10 @@ public class RentService {
         Order order = orderOptional.get();
         Integer carId = order.getCarId();
 
+        if (order.getStatus().equals(1)) {
+            return DataResult.error("The car has returned");
+        }
+
         Car car = carRepository.findById(carId).get();
         car.setStock(car.getStock() + 1);
         carRepository.save(car);
